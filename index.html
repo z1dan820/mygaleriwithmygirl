@@ -9,7 +9,7 @@
 <body class="bg-gray-100 min-h-screen flex flex-col items-center py-10">
 
   <!-- BACKSOUND -->
-  <audio id="bgAudio" src="backsound.mp3" preload="auto"></audio>
+  <audio id="bgAudio" src="backsound.mp3" preload="auto" loop></audio>
 
   <h1 class="text-3xl font-bold text-gray-800 mb-8">My Galeri With My Girl</h1>
 
@@ -87,12 +87,14 @@
   // BACKSOUND FIX
   const bgAudio = document.getElementById("bgAudio");
 
-  // mainkan otomatis setelah ada interaksi
-  document.addEventListener("click", () => {
-    if (bgAudio.paused) {
-      bgAudio.play().catch(err => console.log("Autoplay diblokir:", err));
-    }
-  });
+  function startAudio() {
+    bgAudio.play().catch(err => console.log("Autoplay diblokir:", err));
+    document.removeEventListener("click", startAudio);
+    document.removeEventListener("scroll", startAudio);
+  }
+
+  document.addEventListener("click", startAudio);
+  document.addEventListener("scroll", startAudio);
 </script>
 
 </body>
