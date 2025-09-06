@@ -8,6 +8,9 @@
 </head>
 <body class="bg-gray-100 min-h-screen flex flex-col items-center py-10">
 
+  <!-- BACKSOUND (ambil dari directory project) -->
+  <audio id="backsound" src="backsound.mp3" autoplay loop></audio>
+
   <h1 class="text-3xl font-bold text-gray-800 mb-8">My Galeri With My Girl</h1>
 
   <!-- Gallery Container -->
@@ -17,12 +20,11 @@
     <div class="relative overflow-hidden rounded-2xl shadow-lg">
       <div class="relative w-full h-60 overflow-hidden">
         <div class="flex transition-transform duration-500" id="slider1">
-          <img src="https://picsum.photos/id/1015/600/400" class="w-full h-60 object-cover flex-shrink-0" alt="">
-          <img src="https://picsum.photos/id/1016/600/400" class="w-full h-60 object-cover flex-shrink-0" alt="">
-          <img src="https://picsum.photos/id/1018/600/400" class="w-full h-60 object-cover flex-shrink-0" alt="">
+          <img src="img/foto1.jpg" class="w-full h-60 object-cover flex-shrink-0" alt="">
+          <img src="img/foto2.jpg" class="w-full h-60 object-cover flex-shrink-0" alt="">
+          <img src="img/foto3.jpg" class="w-full h-60 object-cover flex-shrink-0" alt="">
         </div>
       </div>
-      <!-- Buttons -->
       <button onclick="prevSlide('slider1')" class="absolute left-2 top-1/2 -translate-y-1/2 bg-black/50 text-white p-2 rounded-full">❮</button>
       <button onclick="nextSlide('slider1')" class="absolute right-2 top-1/2 -translate-y-1/2 bg-black/50 text-white p-2 rounded-full">❯</button>
     </div>
@@ -31,12 +33,11 @@
     <div class="relative overflow-hidden rounded-2xl shadow-lg">
       <div class="relative w-full h-60 overflow-hidden">
         <div class="flex transition-transform duration-500" id="slider2">
-          <img src="https://picsum.photos/id/1025/600/400" class="w-full h-60 object-cover flex-shrink-0" alt="">
-          <img src="https://picsum.photos/id/1027/600/400" class="w-full h-60 object-cover flex-shrink-0" alt="">
-          <img src="https://picsum.photos/id/1028/600/400" class="w-full h-60 object-cover flex-shrink-0" alt="">
+          <img src="img/foto4.jpg" class="w-full h-60 object-cover flex-shrink-0" alt="">
+          <img src="img/foto5.jpg" class="w-full h-60 object-cover flex-shrink-0" alt="">
+          <img src="img/foto6.jpg" class="w-full h-60 object-cover flex-shrink-0" alt="">
         </div>
       </div>
-      <!-- Buttons -->
       <button onclick="prevSlide('slider2')" class="absolute left-2 top-1/2 -translate-y-1/2 bg-black/50 text-white p-2 rounded-full">❮</button>
       <button onclick="nextSlide('slider2')" class="absolute right-2 top-1/2 -translate-y-1/2 bg-black/50 text-white p-2 rounded-full">❯</button>
     </div>
@@ -45,12 +46,11 @@
     <div class="relative overflow-hidden rounded-2xl shadow-lg">
       <div class="relative w-full h-60 overflow-hidden">
         <div class="flex transition-transform duration-500" id="slider3">
-          <img src="https://picsum.photos/id/1035/600/400" class="w-full h-60 object-cover flex-shrink-0" alt="">
-          <img src="https://picsum.photos/id/1037/600/400" class="w-full h-60 object-cover flex-shrink-0" alt="">
-          <img src="https://picsum.photos/id/1039/600/400" class="w-full h-60 object-cover flex-shrink-0" alt="">
+          <img src="img/foto7.jpg" class="w-full h-60 object-cover flex-shrink-0" alt="">
+          <img src="img/foto8.jpg" class="w-full h-60 object-cover flex-shrink-0" alt="">
+          <img src="img/foto9.jpg" class="w-full h-60 object-cover flex-shrink-0" alt="">
         </div>
       </div>
-      <!-- Buttons -->
       <button onclick="prevSlide('slider3')" class="absolute left-2 top-1/2 -translate-y-1/2 bg-black/50 text-white p-2 rounded-full">❮</button>
       <button onclick="nextSlide('slider3')" class="absolute right-2 top-1/2 -translate-y-1/2 bg-black/50 text-white p-2 rounded-full">❯</button>
     </div>
@@ -63,12 +63,7 @@
   </footer>
 
   <script>
-    // Object untuk simpan posisi index per slider
-    const sliderIndex = {
-      slider1: 0,
-      slider2: 0,
-      slider3: 0
-    };
+    const sliderIndex = { slider1: 0, slider2: 0, slider3: 0 };
 
     function showSlide(sliderId) {
       const slider = document.getElementById(sliderId);
