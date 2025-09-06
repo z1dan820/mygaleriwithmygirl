@@ -9,7 +9,7 @@
 <body class="bg-gray-100 min-h-screen flex flex-col items-center py-10">
 
   <!-- BACKSOUND -->
-  <audio id="backsound" src="backsound.mp3" loop></audio>
+  <audio id="bgAudio" src="backsound.mp3" preload="auto"></audio>
 
   <h1 class="text-3xl font-bold text-gray-800 mb-8">My Galeri With My Girl</h1>
 
@@ -85,7 +85,7 @@
     }
 
     // BACKSOUND FIX
-    const backsound = document.getElementById("backsound");
+    const bgAudio = document.getElementById("bgAudio");
 
     // coba mainkan otomatis setelah interaksi pertama
     document.addEventListener("click", () => {
