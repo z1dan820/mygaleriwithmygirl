@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Image Gallery with Slides</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 min-h-screen flex flex-col items-center py-10">
+
+  <h1 class="text-3xl font-bold text-gray-800 mb-8">Image Gallery dengan Slide</h1>
+
+  <!-- Gallery Container -->
+  <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-6 px-4 max-w-6xl w-full">
+
+    <!-- ITEM 1 -->
+    <div class="relative overflow-hidden rounded-2xl shadow-lg">
+      <div class="relative w-full h-60 overflow-hidden">
+        <div class="flex transition-transform duration-500" id="slider1">
+          <img src="https://picsum.photos/id/1015/600/400" class="w-full h-60 object-cover flex-shrink-0" alt="">
+          <img src="https://picsum.photos/id/1016/600/400" class="w-full h-60 object-cover flex-shrink-0" alt="">
+          <img src="https://picsum.photos/id/1018/600/400" class="w-full h-60 object-cover flex-shrink-0" alt="">
+        </div>
+      </div>
+      <!-- Buttons -->
+      <button onclick="prevSlide('slider1')" class="absolute left-2 top-1/2 -translate-y-1/2 bg-black/50 text-white p-2 rounded-full">❮</button>
+      <button onclick="nextSlide('slider1')" class="absolute right-2 top-1/2 -translate-y-1/2 bg-black/50 text-white p-2 rounded-full">❯</button>
+    </div>
+
+    <!-- ITEM 2 -->
+    <div class="relative overflow-hidden rounded-2xl shadow-lg">
+      <div class="relative w-full h-60 overflow-hidden">
+        <div class="flex transition-transform duration-500" id="slider2">
+          <img src="https://picsum.photos/id/1025/600/400" class="w-full h-60 object-cover flex-shrink-0" alt="">
+          <img src="https://picsum.photos/id/1027/600/400" class="w-full h-60 object-cover flex-shrink-0" alt="">
+          <img src="https://picsum.photos/id/1028/600/400" class="w-full h-60 object-cover flex-shrink-0" alt="">
+        </div>
+      </div>
+      <!-- Buttons -->
+      <button onclick="prevSlide('slider2')" class="absolute left-2 top-1/2 -translate-y-1/2 bg-black/50 text-white p-2 rounded-full">❮</button>
+      <button onclick="nextSlide('slider2')" class="absolute right-2 top-1/2 -translate-y-1/2 bg-black/50 text-white p-2 rounded-full">❯</button>
+    </div>
+
+    <!-- ITEM 3 -->
+    <div class="relative overflow-hidden rounded-2xl shadow-lg">
+      <div class="relative w-full h-60 overflow-hidden">
+        <div class="flex transition-transform duration-500" id="slider3">
+          <img src="https://picsum.photos/id/1035/600/400" class="w-full h-60 object-cover flex-shrink-0" alt="">
+          <img src="https://picsum.photos/id/1037/600/400" class="w-full h-60 object-cover flex-shrink-0" alt="">
+          <img src="https://picsum.photos/id/1039/600/400" class="w-full h-60 object-cover flex-shrink-0" alt="">
+        </div>
+      </div>
+      <!-- Buttons -->
+      <button onclick="prevSlide('slider3')" class="absolute left-2 top-1/2 -translate-y-1/2 bg-black/50 text-white p-2 rounded-full">❮</button>
+      <button onclick="nextSlide('slider3')" class="absolute right-2 top-1/2 -translate-y-1/2 bg-black/50 text-white p-2 rounded-full">❯</button>
+    </div>
+
+  </div>
+
+  <!-- Footer -->
+  <footer class="mt-10 text-gray-600">
+    &copy; 2025 Image Gallery dengan Slide
+  </footer>
+
+  <script>
+    // Object untuk simpan posisi index per slider
+    const sliderIndex = {
+      slider1: 0,
+      slider2: 0,
+      slider3: 0
+    };
+
+    function showSlide(sliderId) {
+      const slider = document.getElementById(sliderId);
+      const index = sliderIndex[sliderId];
+      slider.style.transform = `translateX(-${index * 100}%)`;
+    }
+
+    function nextSlide(sliderId) {
+      const slider = document.getElementById(sliderId);
+      const totalSlides = slider.children.length;
+      sliderIndex[sliderId] = (sliderIndex[sliderId] + 1) % totalSlides;
+      showSlide(sliderId);
+    }
+
+    function prevSlide(sliderId) {
+      const slider = document.getElementById(sliderId);
+      const totalSlides = slider.children.length;
+      sliderIndex[sliderId] = (sliderIndex[sliderId] - 1 + totalSlides) % totalSlides;
+      showSlide(sliderId);
+    }
+  </script>
+</body>
+</html>
