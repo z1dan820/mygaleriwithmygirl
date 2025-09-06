@@ -61,38 +61,39 @@
   </footer>
 
   <script>
-    // SLIDER
-    const sliderIndex = { slider1: 0, slider2: 0, slider3: 0 };
+  // SLIDER
+  const sliderIndex = { slider1: 0, slider2: 0, slider3: 0 };
 
-    function showSlide(sliderId) {
-      const slider = document.getElementById(sliderId);
-      const index = sliderIndex[sliderId];
-      slider.style.transform = `translateX(-${index * 100}%)`;
+  function showSlide(sliderId) {
+    const slider = document.getElementById(sliderId);
+    const index = sliderIndex[sliderId];
+    slider.style.transform = `translateX(-${index * 100}%)`;
+  }
+
+  function nextSlide(sliderId) {
+    const slider = document.getElementById(sliderId);
+    const totalSlides = slider.children.length;
+    sliderIndex[sliderId] = (sliderIndex[sliderId] + 1) % totalSlides;
+    showSlide(sliderId);
+  }
+
+  function prevSlide(sliderId) {
+    const slider = document.getElementById(sliderId);
+    const totalSlides = slider.children.length;
+    sliderIndex[sliderId] = (sliderIndex[sliderId] - 1 + totalSlides) % totalSlides;
+    showSlide(sliderId);
+  }
+
+  // BACKSOUND FIX
+  const bgAudio = document.getElementById("bgAudio");
+
+  // mainkan otomatis setelah ada interaksi
+  document.addEventListener("click", () => {
+    if (bgAudio.paused) {
+      bgAudio.play().catch(err => console.log("Autoplay diblokir:", err));
     }
+  });
+</script>
 
-    function nextSlide(sliderId) {
-      const slider = document.getElementById(sliderId);
-      const totalSlides = slider.children.length;
-      sliderIndex[sliderId] = (sliderIndex[sliderId] + 1) % totalSlides;
-      showSlide(sliderId);
-    }
-
-    function prevSlide(sliderId) {
-      const slider = document.getElementById(sliderId);
-      const totalSlides = slider.children.length;
-      sliderIndex[sliderId] = (sliderIndex[sliderId] - 1 + totalSlides) % totalSlides;
-      showSlide(sliderId);
-    }
-
-    // BACKSOUND FIX
-    const bgAudio = document.getElementById("bgAudio");
-
-    // coba mainkan otomatis setelah interaksi pertama
-    document.addEventListener("click", () => {
-      if (backsound.paused) {
-        backsound.play().catch(err => console.log("Autoplay diblokir:", err));
-      }
-    });
-  </script>
 </body>
 </html>
